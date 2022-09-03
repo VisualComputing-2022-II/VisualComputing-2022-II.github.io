@@ -3,15 +3,16 @@ title: Introduction
 type: docs
 ---
 
-# Showcase Template xd
+# Showcase Title
 
+Esta página consta de reportes académicos enriquecidos para la asignatura _**Computación Visual**_ del período académico **2022-II** de la _Universidad Nacional de Colombia_.
 
-{{< hint info >}}
-**Integrantes**
-* Juan Esteban Alarcón Bravo
-* Juan Sebastián Ruiz Sánchez
-* Isaac Zarate Reyes
-{{< /hint >}}
+## Integrantes
+* [Juan Esteban Alarcón Bravo](https://github.com/jalarconb)
+* [Juan Sebastián Ruiz Sánchez](https://github.com/jusruizsa)
+* [Isaac Zarate Reyes](https://github.com/izarater)
+
+---
 
 Welcome to the [gohugo](https://gohugo.io/) template to create rich content [academic reports](https://www.wordy.com/writers-workshop/writing-an-academic-report/) having [p5.js](https://p5js.org/) sketches.
 

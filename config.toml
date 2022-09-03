@@ -1,6 +1,6 @@
 baseURL = "https://visualcomputing-2022-ii.github.io/"
 languageCode = "en-us"
-title = "Showcase Template"
+title = "Showcase Title"
 theme = 'book'
 
 # Book configuration sss
@@ -18,11 +18,10 @@ enableGitInfo = true
 [params]
   # (Optional, default light) Sets color theme: light, dark or auto.
   # Theme 'auto' switches between dark and light modes based on browser/os preferences
-  BookTheme = 'dark'
+  BookTheme = 'auto'
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  # BookRepo = 'https://github.com/visualcomputing/showcase'
   BookRepo = 'https://github.com/VisualComputing-2022-II/VisualComputing-2022-II.github.io'
 
   # Configure the date format used on the pages
