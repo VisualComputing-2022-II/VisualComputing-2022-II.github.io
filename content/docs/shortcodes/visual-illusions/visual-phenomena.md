@@ -23,6 +23,14 @@ Explicación de la ilusión de las líneas paralelas.
 
 {{< p5-iframe sketch="/sketches/lineas-paralelas.js" width="582" height="424" >}}
 
+{{< details title="El Vestido" open=false >}}
+{{< hint warning >}}
+Explicación de la ilusión del vestido.
+{{< /hint >}}
+{{< /details >}}
+
+{{< p5-iframe sketch="/sketches/vestido.js" width="597" height="464" >}}
+
 ## Conclusiones y Trabajo Futuro
 
 {{< hint warning >}}
