@@ -1,119 +1,99 @@
-var x;
+var x,s,buttonRed;
 var changeDirection;
+var redAlpha = 0;
+var stripesAlpha = 255;
+
+
+/*--------------------------------------------------------------
+Código de movimiento ida y vuelta original creado por
+cmorgantywls bajo el título "Make shapes move back & forth".
+
+Recuperado el 30/08/2022 de:
+
+https://editor.p5js.org/cmorgantywls/sketches/HkdbRQnOG
+--------------------------------------------------------------*/
 
 function setup() {
-  createCanvas(700, 300);
+	createCanvas(700, 260);
+
 	x = 1;
-	changeDirection = false;
-	//this variable acts as a "switch" that decides which direction
-	//the circle is going based on it's position
+	s = 0.6; // Velocidad
+	changeDirection = false; // Switch de dirección
+	
+	buttonRed = createButton('Toggle Red');
+	buttonRed.position(0, height-40);
+	buttonRed.size(width/2,40);
+	buttonRed.mousePressed(changeToggleRed);
+
+	buttonStripes = createButton('Toggle Stripes');
+	buttonStripes.position(width/2, height-40);
+	buttonStripes.size(width/2,40);
+	buttonStripes.mousePressed(changeStripes);
 }
 
 function draw() {
   background(255);
 	noStroke();
 
-	drawStripes();
+	drawStripes(stripesAlpha);
 
+	// Rectángulo Amarillo
 	fill(255,180,0);
-	square(x,50,50);
+	rect(x,35,55,20);
 	
-	if(x >= width){
+	// Rectángulo Azul
+	fill(0,100,255);
+	rect(x,165,55,20);
+
+	// Rectángulo Rojo
+	fill(255,0,0,redAlpha);
+	rect(x,55,55,110);
+
+	// Cambio de dirección der -> izq
+	if(x >= width-80){
 		changeDirection = true
 	}
-	//if the circle passes the right side, change the direction
-	//effects of direction change happen below
-	else if (x <= 0){
+
+	// Cambio de dirección izq -> der
+	else if (x < 40){
 		changeDirection = false;
 	}
-	//if the circle passes the left side (or becomes equal to 0)
-	//changes the direction, effects are in the next if statement below
 	
+	// Control de velocidad
 	if (x >= 0 && changeDirection == false){
-		x += 1;
+		x += s;
 	}
-	//if x is greater than OR equal to 0, move right
 	else if(changeDirection == true){
-		x -= 1;
+		x -= s;
 	}
-	//once the switch is changed, x must have been bigger than width
 }
 
 // -----------------------------------------------------------------------
 
-function drawStripes() {
+function drawStripes(stripesAlpha) { // Dibujo de franjas verticales
 	push();
-		translate(30,0);
-		strokeWeight(20);
-		stroke(0);
-		for (let i = 0; i < 17; i++) {
-			line(40*i,0,40*i,height);
+		let a = 15;
+		translate(1.5*a,0);
+		strokeWeight(a);
+		stroke(0,0,0,stripesAlpha);
+		for (let i = 0; i < width/(2*a); i++) {
+			line(2*a*i,0,2*a*i,height-40);
 		}
 	pop();
 }
 
-
-/*let x = 15 // Desfase horizontal entre cada fila de cuadrados
-let y = 40; // Altura de las filas
-let fillVar = 0; // Relleno de los cuadrados
-let button;	// Botón para cambiar fillVar
-
-function setup() {
-	createCanvas(570, 400);
-	button = createButton('Mostrar/Ocultar Cuadrados');
-	button.position(0, 360);
-	button.size(width,40);
-  button.mousePressed(changeFillVar);
-}
-  
-function draw() {
-	background(255);
-
-	drawSquares(x,y,fillVar);
-	drawLines(y);
-}
-
-// -----------------------------------------------------------------------
-
-function changeFillVar() { // Listener del botón para cambiar fillVar
-	if (fillVar == 0) {
-		fillVar = 255;
+function changeToggleRed() { // Listener del botón para mostrar/ocultar el Cuadrado Rojo
+	if (redAlpha == 0) {
+		redAlpha = 128;
 	} else {
-		fillVar = 0;
+		redAlpha = 0;
 	}
 }
 
-function drawSquares(x,y,fillVar){ // Función para dibujar los cuadrados negros
-	push();
-		translate(y/4,0);
-		noStroke();
-		fill(fillVar);
-		for (let i = 0; i < 2; i++) {
-			for (let j = 0; j < 7; j++) {
-				square(y*2*j,y*4*i,y);
-			}
-			for (let j = 0; j < 7; j++) {
-				square(y*2*j+x,y+y*4*i,y);
-			}
-			for (let j = 0; j < 7; j++) {
-				square(y*2*j+2*x,2*y+y*4*i,y);
-			}
-			for (let j = 0; j < 7; j++) {
-				square(y*2*j+x,3*y+y*4*i,y);
-			}
-		}
-		for (let j = 0; j < 7; j++) {
-			square(y*2*j,y*8,y);
-		}
-	pop();
+function changeStripes() { // Listener del botón para mostrar/ocultar Stripes
+	if (stripesAlpha == 0) {
+		stripesAlpha = 255;
+	} else {
+		stripesAlpha = 0;
+	}
 }
-
-function drawLines(y) {  // Función para dibujar las líneas
-	push();
-		strokeWeight(3);
-		stroke(120);
-		for (let i = 1; i < 9; i++) {
-			line(0,y*i,width,y*i);
-		}
-	pop();
-}*/

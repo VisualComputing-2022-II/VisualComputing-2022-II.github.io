@@ -31,6 +31,14 @@ Explicación de la ilusión del vestido.
 
 {{< p5-iframe sketch="/sketches/vestido.js" width="597" height="464" >}}
 
+{{< details title="Movimiento a pasos" open=false >}}
+{{< hint warning >}}
+Explicación de la ilusión del movimiento a pasos.
+{{< /hint >}}
+{{< /details >}}
+
+{{< p5-iframe sketch="/sketches/carrera.js" width="712" height="284" >}}
+
 ## Conclusiones y Trabajo Futuro
 
 {{< hint warning >}}
