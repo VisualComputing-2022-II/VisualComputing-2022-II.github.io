@@ -8,7 +8,7 @@ function setup() {
 	button = createButton('Mostrar/Ocultar Cuadrados');
 	button.position(0, 360);
 	button.size(width,40);
-  button.mousePressed(changeFillVar);
+  	button.mousePressed(changeFillVar);
 }
   
 function draw() {
