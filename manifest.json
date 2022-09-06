@@ -1,6 +1,6 @@
 {
-  "name": "Showcase Title",
-  "short_name": "Showcase Title",
+  "name": "Visual Repo",
+  "short_name": "Visual Repo",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

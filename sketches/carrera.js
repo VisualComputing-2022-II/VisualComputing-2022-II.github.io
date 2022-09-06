@@ -14,10 +14,10 @@ https://editor.p5js.org/cmorgantywls/sketches/HkdbRQnOG
 --------------------------------------------------------------*/
 
 function setup() {
-	createCanvas(700, 260);
+	createCanvas(700, 460);
 
 	x = 1;
-	s = 0.6; // Velocidad
+	s = 1; // Velocidad
 	changeDirection = false; // Switch de dirección
 	
 	buttonRed = createButton('Toggle Red');
@@ -38,12 +38,12 @@ function draw() {
 	drawStripes(stripesAlpha);
 
 	// Rectángulo Amarillo
-	fill(255,180,0);
-	rect(x,35,55,20);
+	fill(255,200,0);
+	rect(x,100,55,20);
 	
 	// Rectángulo Azul
-	fill(0,100,255);
-	rect(x,165,55,20);
+	fill(0,50,255);
+	rect(x,height-100-40-20,55,20);
 
 	// Rectángulo Rojo
 	fill(255,0,0,redAlpha);
