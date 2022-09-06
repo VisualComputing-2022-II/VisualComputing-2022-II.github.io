@@ -37,7 +37,7 @@ Al tener el primer rectángulo una luminosidad muy parecida a la de las rayas bl
 {{< /hint >}}
 {{< /details >}}
 
-{{< p5-iframe sketch="/sketches/carrera.js" width="712" height="284" >}}
+{{< p5-iframe sketch="/sketches/carrera.js" width="712" height="484" >}}
 
 {{< details title="Ilusión de Orbison" open=false >}}
 {{< hint warning >}}
@@ -63,8 +63,9 @@ Estas ilusiones evocan la percepción de un borde sin la necesidad de un cambio 
 
 {{< p5-iframe sketch="/sketches/ponzo.js" width="612" height="464" >}}
 
-## Conclusiones y Trabajo Futuro
 
-{{< hint warning >}}
-.-. ?
-{{< /hint >}}
+<!-- ## Conclusiones y Trabajo Futuro -->
+
+<!-- {{< hint warning >}} -->
+<!-- .-. ? -->
+<!-- {{< /hint >}} -->

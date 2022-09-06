@@ -35,8 +35,8 @@ Explicación de la ilusión de las líneas paralelas.
 
 {{< p5-iframe sketch="/sketches/histogram.js" width="700" height="500" >}}
 
-### Conclusiones y Trabajo Futuro
+<!-- ### Conclusiones y Trabajo Futuro
 
 {{< hint warning >}}
 a
-{{< /hint >}}
+{{< /hint >}} -->
