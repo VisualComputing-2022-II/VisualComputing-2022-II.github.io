@@ -1,21 +1,22 @@
-let img;
+var img;
 const w = 120;
 
 const matrix = [[-1, -1, -1],
-                [-1, 0, -1],
+                [-1, 9, -1],
                 [-1, -1, -1]];
 
 function preload() {
-    img = loadImage('./apollo11.jpg');
+	img = loadImage(['/sketches/apollo11.png']);
 }
 
 function setup() {
     createCanvas(640, 360);
-    background(255, 255, 255);
+	// img = createImg(['/sketches/apollo11.png']);
+	// img.hide();
 }
 
 function draw() {
-    image(img, 0, 0);
+	image(img, 0, 0);
     
     let xstart = constrain(mouseX - w/2, 0, img.width);
     let ystart = constrain(mouseY - w/2, 0, img.heigth);
@@ -23,7 +24,9 @@ function draw() {
     let yend = constrain(mouseY + w/2, 0, img.width);
 
     const matrixsize = 3
-    loadPixels()
+    
+	loadPixels()
+
     for(let x = xstart; x < xend; x++) {
         for (let y = ystart; y < yend; y++) {
             let c = convolution(x, y, matrix, matrixsize, img);
@@ -53,12 +56,12 @@ function convolution(x, y, matrix, matrixsize, img) {
             rtotal += (red(img.pixels[loc]) * matrix[i][j]);
             gtotal += (green(img.pixels[loc]) * matrix[i][j]);
             btotal += (blue(img.pixels[loc]) * matrix[i][j]);
-            
-        } 
-
+        }
     }
 
     rtotal = constrain(rtotal, 0, 255);
     gtotal = constrain(gtotal, 0, 255);
     btotal = constrain(btotal, 0, 255);
+	
+	return color(rtotal, gtotal, btotal);
 }

@@ -19,13 +19,21 @@ a
 
 ### Código y Resultados
 
-{{< details title="Líneas Paralelas" open=false >}}
+{{< details title="Convolución" open=false >}}
 {{< hint warning >}}
 Explicación de la ilusión de las líneas paralelas.
 {{< /hint >}}
 {{< /details >}}
 
-{{< p5-iframe sketch="/sketches/convolucion.js" width="582" height="424" >}}
+{{< p5-iframe sketch="/sketches/convolution.js" width="750" height="450" >}}
+
+{{< details title="Histograma" open=false >}}
+{{< hint warning >}}
+Explicación de la ilusión de las líneas paralelas.
+{{< /hint >}}
+{{< /details >}}
+
+{{< p5-iframe sketch="/sketches/histogram.js" width="700" height="500" >}}
 
 ### Conclusiones y Trabajo Futuro
 
