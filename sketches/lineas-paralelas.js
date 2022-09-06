@@ -31,7 +31,9 @@ function changeFillVar() { // Listener del botón para cambiar fillVar
 function drawSquares(x,y,fillVar){ // Función para dibujar los cuadrados negros
 	push();
 		translate(y/4,0);
-		noStroke();
+		//noStroke();
+		strokeWeight(2);
+		stroke(120,120,120,255-fillVar);
 		fill(fillVar);
 		for (let i = 0; i < 2; i++) {
 			for (let j = 0; j < 7; j++) {
@@ -55,7 +57,7 @@ function drawSquares(x,y,fillVar){ // Función para dibujar los cuadrados negros
 
 function drawLines(y) {  // Función para dibujar las líneas
 	push();
-		strokeWeight(3);
+		strokeWeight(2);
 		stroke(120);
 		for (let i = 1; i < 9; i++) {
 			line(0,y*i,width,y*i);
