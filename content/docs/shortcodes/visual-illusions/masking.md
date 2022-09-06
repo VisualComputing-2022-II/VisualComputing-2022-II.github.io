@@ -14,14 +14,14 @@ Implement an image processing web app supporting different image kernels and sup
 ### Background
 
 {{< hint warning >}}
-a
+Un kernel, una matriz de convolución o una máscara es una matriz pequeña que se utiliza para desenfocar, agudizar, grabar, detectar bordes y más. Esto se logra haciendo una convolución entre el kernel y una imagen.
 {{< /hint >}}
 
 ### Código y Resultados
 
 {{< details title="Convolución" open=false >}}
 {{< hint warning >}}
-Explicación de la ilusión de las líneas paralelas.
+La convolución es el proceso de agregar cada elemento de la imagen a sus vecinos locales, ponderados por el kernel. [Ver más](https://en.wikipedia.org/wiki/Kernel_%28image_processing%29#Convolution)
 {{< /hint >}}
 {{< /details >}}
 
@@ -29,7 +29,7 @@ Explicación de la ilusión de las líneas paralelas.
 
 {{< details title="Histograma" open=false >}}
 {{< hint warning >}}
-Explicación de la ilusión de las líneas paralelas.
+Un histograma de imagen es un tipo de histograma que actúa como una representación gráfica de la distribución tonal en una imagen digital. Traza el número de píxeles para cada valor tonal. Permite juzgar la distribución tonal completa de un vistazo. [Ver más](https://en.wikipedia.org/wiki/Image_histogram)
 {{< /hint >}}
 {{< /details >}}
 
@@ -38,5 +38,5 @@ Explicación de la ilusión de las líneas paralelas.
 ### Conclusiones y Trabajo Futuro
 
 {{< hint warning >}}
-a
+Tanto para el desarrollo de las ilusiones ópticas como el de máscaras, filtros y convoluciones, encontramos un enorme valor en materia de computación visual, apenas podemos vislumbrar, percibir por un instante una pizca del alcance creativo y más, colaborativo. Nos planteamos trabajar en pro de alcanzar estos adyacentes posibles y por qué no, mejorar el aspecto visual de nuestros desarrollos a niveles inimaginados.  
 {{< /hint >}}
