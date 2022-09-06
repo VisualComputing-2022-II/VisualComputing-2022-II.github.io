@@ -3,7 +3,7 @@ title: Introduction
 type: docs
 ---
 
-# Showcase Title
+# Visual Repo
 
 Esta página consta de reportes académicos enriquecidos para la asignatura _**Computación Visual**_ del período académico **2022-II** de la _Universidad Nacional de Colombia_.
 

@@ -1,6 +1,6 @@
 baseURL = "https://visualcomputing-2022-ii.github.io/"
 languageCode = "en-us"
-title = "Showcase Title"
+title = "Visual Repo"
 theme = 'book'
 
 # Book configuration sss

@@ -35,7 +35,7 @@ Un histograma de imagen es un tipo de histograma que actúa como una representac
 
 {{< p5-iframe sketch="/sketches/histogram.js" width="700" height="500" >}}
 
-### Conclusiones y Trabajo Futuro
+<!-- ### Conclusiones y Trabajo Futuro
 
 {{< hint warning >}}
 Tanto para el desarrollo de las ilusiones ópticas como el de máscaras, filtros y convoluciones, encontramos un enorme valor en materia de computación visual, apenas podemos vislumbrar, percibir por un instante una pizca del alcance creativo y más, colaborativo. Nos planteamos trabajar en pro de alcanzar estos adyacentes posibles y por qué no, mejorar el aspecto visual de nuestros desarrollos a niveles inimaginados.  
