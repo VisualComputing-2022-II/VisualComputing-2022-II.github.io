@@ -67,7 +67,7 @@ function convolution(x, y, matrix, matrixsize, img) {
 }*/
 
 let img;
-let w = 220;
+let w = 80;
 
 // It's possible to convolve the image with many different 
 // matrices to produce different effects. This is a high-pass 
@@ -82,6 +82,7 @@ function preload() {
 
 function setup() {
   createCanvas(720, 400);
+  img.resize(720, 400);
   img.loadPixels();
 
   // pixelDensity(1) for not scaling pixel density to display density
