@@ -47,7 +47,7 @@ function draw() {
 
 	// Rectángulo Rojo
 	fill(255,0,0,redAlpha);
-	rect(x,55,55,110);
+	rect(x,120,55,180);
 
 	// Cambio de dirección der -> izq
 	if(x >= width-80){

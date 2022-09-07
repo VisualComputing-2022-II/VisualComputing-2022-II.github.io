@@ -1,6 +1,5 @@
 ---
-title: Introduction
-type: docs
+title: Visual Repo
 ---
 
 # Visual Repo
@@ -23,3 +22,14 @@ $git clone https://github.com/VisualComputing-2022-II/VisualComputing-2022-II.gi
 $git submodule update --init --recursive
 $hugo server -D --disableFastRender
 ```
+
+<!--
+Theme help:
+https://learn.netlify.app/en/
+-->
+
+---
+
+## Contenido
+
+{{<children description="true" depth="3">}}

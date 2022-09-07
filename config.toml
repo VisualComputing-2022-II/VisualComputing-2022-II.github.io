@@ -1,9 +1,14 @@
 baseURL = "https://visualcomputing-2022-ii.github.io/"
 languageCode = "en-us"
 title = "Visual Repo"
-theme = 'book'
+# theme = 'book'
+theme = "hugo-theme-learn"
 
-# Book configuration sss
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+# Book configuration
 disablePathToLower = true
 enableGitInfo = true
 
@@ -18,7 +23,8 @@ enableGitInfo = true
 [params]
   # (Optional, default light) Sets color theme: light, dark or auto.
   # Theme 'auto' switches between dark and light modes based on browser/os preferences
-  BookTheme = 'auto'
+  # BookTheme = 'auto'
+  themeVariant = "red"
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
