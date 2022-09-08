@@ -21,8 +21,8 @@ function draw() {
 		// Líneas Verticales
 		stroke(0);
 		noFill();
-		line(100,height,width/2-25,0);
-		line(width-100,height,width/2+25,0);
+		line(100,height-40,width/2-25,0);
+		line(width-100,height-40,width/2+25,0);
 	pop();
 	
 	// Líneas Horizontales
@@ -46,12 +46,11 @@ function changeFillVar() { // Listener del botón para cambiar fillVar
 }
 
 function drawLines(fillVar) { // Líneas reveladoras
-	// Líneas
 	push();
 		strokeWeight(3);
 		stroke(70,165,250,fillVar);
-		line(width/3,0,width/3,height);
-		line(2*width/3,0,2*width/3,height);
+		line(width/3,0,width/3,height-30);
+		line(2*width/3,0,2*width/3,height-30);
 	pop();
 }
 

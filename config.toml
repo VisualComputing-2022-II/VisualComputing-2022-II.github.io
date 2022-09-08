@@ -25,6 +25,7 @@ enableGitInfo = true
   # Theme 'auto' switches between dark and light modes based on browser/os preferences
   # BookTheme = 'auto'
   themeVariant = "red"
+  custom_css = ["css/hugo-theme.css"]  
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
