@@ -21,7 +21,7 @@
 }
 
 body {
-    font-size: 16px !important;
+    font-size: 20px !important;
     color: #323232 !important;
 }
 
@@ -145,6 +145,10 @@ h2, h3, h4, h5, h6 {
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit;
+}
+
+h1 {
+  font-weight: 600;
 }
 
 h2 {

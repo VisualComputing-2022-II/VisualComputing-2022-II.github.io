@@ -1,89 +1,64 @@
-/*var img;
-const w = 120;
-
-const matrix = [[-1, -1, -1],
-                [-1, 9, -1],
-                [-1, -1, -1]];
-
-function preload() {
-	img = loadImage(['/sketches/apollo11.png']);
-}
-
-function setup() {
-    createCanvas(640, 360);
-	// img = createImg(['/sketches/apollo11.png']);
-	// img.hide();
-}
-
-function draw() {
-	image(img, 0, 0);
-    
-    let xstart = constrain(mouseX - w/2, 0, img.width);
-    let ystart = constrain(mouseY - w/2, 0, img.heigth);
-    let xend = constrain(mouseX + w/2, 0, img.heigth);
-    let yend = constrain(mouseY + w/2, 0, img.width);
-
-    const matrixsize = 3
-    
-	loadPixels()
-
-    for(let x = xstart; x < xend; x++) {
-        for (let y = ystart; y < yend; y++) {
-            let c = convolution(x, y, matrix, matrixsize, img);
-            let loc = x + y * img.width;
-            pixels[loc] = c;
-        }
-    }
-
-    updatePixels();
-}
-
-
-function convolution(x, y, matrix, matrixsize, img) {
-    let rtotal = 0.0;
-    let gtotal = 0.0;
-    let btotal = 0.0;
-
-    const offset = matrixsize / 2;
-    for(let i=0; i < matrixsize; i++) {
-        for (let j = 0; j < matrixsize; j++) {
-            let xloc = x + i-offset;
-            let yloc = y + j-offset;
-            let loc = xloc + img.width*yloc;
-
-            loc = constrain(loc, 0, img.pixels.length-1);
-
-            rtotal += (red(img.pixels[loc]) * matrix[i][j]);
-            gtotal += (green(img.pixels[loc]) * matrix[i][j]);
-            btotal += (blue(img.pixels[loc]) * matrix[i][j]);
-        }
-    }
-
-    rtotal = constrain(rtotal, 0, 255);
-    gtotal = constrain(gtotal, 0, 255);
-    btotal = constrain(btotal, 0, 255);
-	
-	return color(rtotal, gtotal, btotal);
-}*/
-
 let img;
-let w = 80;
+let w; // Tamaño del cuadrado
+let m1,m2,m3,m4,m5,m6,m7,m8,m9;
 
 // It's possible to convolve the image with many different 
 // matrices to produce different effects. This is a high-pass 
 // filter; it accentuates the edges. 
-const matrix = [ [ -1, -1, -1 ],
-                 [ -1,  9, -1 ],
-                 [ -1, -1, -1 ] ]; 
+let matrix = [[-1,-1,-1],
+              [-1, 9,-1],
+              [-1,-1,-1]];
 
 function preload() {
   img = loadImage(['/sketches/apollo11.png']);
 }
 
 function setup() {
-  createCanvas(720, 400);
+  createCanvas(720, 500);
   img.resize(720, 400);
   img.loadPixels();
+
+  w = 150;
+
+  m1 = createInput(-1);
+  m2 = createInput(-1);
+  m3 = createInput(-1);
+  m4 = createInput(-1);
+  m5 = createInput(9);
+  m6 = createInput(-1);
+  m7 = createInput(-1);
+  m8 = createInput(-1);
+  m9 = createInput(-1);
+  
+  // Traslación vertical de los inputs de la matriz
+  let yVar = 30;
+
+  m1.position(30, (img.height+yVar)+0);
+  m1.size(30);
+
+  m2.position(60, (img.height+yVar)+0);
+  m2.size(30);
+  
+  m3.position(90, (img.height+yVar)+0);
+  m3.size(30);
+
+  m4.position(30, (img.height+yVar)+30);
+  m4.size(30);
+
+  m5.position(60, (img.height+yVar)+30);
+  m5.size(30);
+
+  m6.position(90, (img.height+yVar)+30);
+  m6.size(30);
+
+  m7.position(30, (img.height+yVar)+60);
+  m7.size(30);
+  
+  m8.position(60, (img.height+yVar)+60);
+  m8.size(30);
+
+  m9.position(90, (img.height+yVar)+60);
+  m9.size(30);
 
   // pixelDensity(1) for not scaling pixel density to display density
   // for more information, check the reference of pixelDensity()
@@ -91,9 +66,20 @@ function setup() {
 }
 
 function draw() {
-  // We're only going to process a portion of the image
-  // so let's set the whole image as the background first
-  background(img);
+
+  // Imprimir imagen en pantalla
+  image(img,0,0);
+
+  // Detección de eventos para los inputs de la matriz
+  m1.input(inputEvent1);
+  m2.input(inputEvent2);
+  m3.input(inputEvent3);
+  m4.input(inputEvent4);
+  m5.input(inputEvent5);
+  m6.input(inputEvent6);
+  m7.input(inputEvent7);
+  m8.input(inputEvent8);
+  m9.input(inputEvent9);
 
   // Calculate the small rectangle we will process
   const xstart = constrain(mouseX - w/2, 0, img.width);
@@ -118,6 +104,56 @@ function draw() {
     }
   }
   updatePixels();
+}
+
+//-----------------------------------------------------------------------------
+
+function keyTyped() { // Evento: Tecla "__" es tipeada.
+  if (key == 'a' || key == 'A') {
+    if (w == 150) {
+      w = displayWidth*2;
+    }else{
+      w = 150;
+    }
+  }
+  // uncomment to prevent any default behavior
+  // return false;
+}
+
+function inputEvent1() {
+  matrix[0][0] = this.value();
+}
+
+function inputEvent2() {
+  matrix[0][1] = this.value();
+}
+
+function inputEvent3() {
+  matrix[0][2] = this.value();
+}
+
+function inputEvent4() {
+  matrix[1][0] = this.value();
+}
+
+function inputEvent5() {
+  matrix[1][1] = this.value();
+}
+
+function inputEvent6() {
+  matrix[1][2] = this.value();
+}
+
+function inputEvent7() {
+  matrix[2][0] = this.value();
+}
+
+function inputEvent8() {
+  matrix[2][1] = this.value();
+}
+
+function inputEvent9() {
+  matrix[2][2] = this.value();
 }
 
 function convolution(x, y, matrix, matrixsize, img) {
