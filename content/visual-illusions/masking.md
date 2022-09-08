@@ -1,6 +1,6 @@
 ---
 title: Masking
-description: Masking description
+description: Kernels, convoluciones e histogramas de imagen.
 weight: 2
 katex: true
 ---

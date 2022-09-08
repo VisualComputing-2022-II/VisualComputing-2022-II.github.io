@@ -1,6 +1,6 @@
 ---
 title: Visual Phenomena & Optical Illusions
-description: Visual phenomena description
+description: Ilusiones ópticas y fenómenos visuales.
 weight: 1
 ---
 
