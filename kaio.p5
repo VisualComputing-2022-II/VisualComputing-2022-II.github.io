@@ -1,0 +1,52 @@
+let x = 0
+let rot = 0
+
+function setup() {
+  createCanvas(400, 400, WEBGL);
+}
+
+function keyPressed() {
+  
+}
+
+function draw() {
+  background(220);
+  orbitControl()
+  
+  if (keyIsDown(RIGHT_ARROW)){
+    x += PI/180
+    rot += 1
+  }  
+  if (keyIsDown(LEFT_ARROW)){
+    x -= PI/180
+    rot -= 1
+  }
+  
+  ambientLight(1000);
+  //pointLight('white', 100, 0, 500);
+  push()
+  fill('red')
+  
+  translate(sin(x)*155, cos(x)*155, 0)
+  rotate(-x)
+  box(10)
+  
+  pop()
+  push();
+  
+  fill('green');
+  //noStroke();
+
+  sphere(150);
+  
+  
+  pop()
+  
+  //specularMaterial(250);
+  //shininess(50);
+  
+  
+  
+  
+  
+}
