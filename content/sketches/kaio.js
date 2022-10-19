@@ -2,21 +2,19 @@
 let r = 155
 
 // Velocidad de movimiento
-speed = 1
+speed = 0.5
 
 let rot = 0
 let teta = 0
 let phi = 0
 let carOrientation = 0
 
-// function preload() {
-//   grass = loadImage(['/sketches/grass.jpg'])
-// }
-
 function setup() {
   // createCanvas(1300, 800, WEBGL)
   createCanvas(400, 400, WEBGL)
   textureMode(NORMAL)
+
+  // Imágenes para texturas
   grass = loadImage(['/sketches/grass.jpg'])
   
   // Posición inicial del carro
@@ -71,35 +69,92 @@ function draw() {
   ambientLight(255)
   //pointLight('white', 100, 0, 500)
 
+  // Rotación global
+  rotateZ(radians(50))
+  rotateX(radians(-10))
+  rotateY(radians(-10))
 
   // Dibujo: Carro
   push()
     fill('red')
-    vCarro = sphericVector(teta, phi, r+5)
+    vCarro = sphericVector(teta, phi, r+6)
     translate(vCarro)
     rotateY(-phi)
     rotateZ(-teta)
     rotateY(carOrientation)
-    axes(50)
+    axis(50)
     box(10)
   pop()
 
   // Dibujo: Planeta
   push()
-    // fill('rgba(0,255,0,0.2)')
-    texture(grass)
+    fill('rgba(200,255,0,0.2)')
+    // texture(grass)
     // noFill()
-    //noStroke()
+    // noStroke()
     sphere(r)
   pop()
 
-  // Edificios
+  // Carretera
   push()
-    stroke('blue')
+    cylinder(156,20)
+  pop()
+
+  // Edificio 1: Casa
+  push()
+    stroke('pink')
     fill(50,255)
-    vEdif1 = sphericVector(PI/3,PI/8,155)
+    vEdif1 = sphericVector(radians(115),radians(120),r)
     translate(vEdif1)
+    rotateY(radians(-120))
+    rotateZ(-radians(115))
+    axis(50)
     sphere(30)
+  pop()
+
+  // Edificio 2: Garaje
+  push()
+    stroke('white')
+    fill(50,255)
+    vEdif2 = sphericVector(radians(130),radians(95),r)
+    translate(vEdif2)
+    rotateX(radians(40))
+    axis(50)
+    cylinder(20,30)
+  pop()
+
+  // Edificio 3: Fuente
+  push()
+    stroke('yellow')
+    fill(50,255)
+    vEdif1 = sphericVector(radians(110),radians(95),r)
+    translate(vEdif1)
+    rotateY(radians(-95))
+    rotateZ(radians(-110))
+    axis(50)
+    cylinder(10,2)
+  pop()
+
+  // Árbol
+  push()
+    // stroke('yellow')
+    noStroke()
+    fill(50,255)
+    vEdif1 = sphericVector(radians(110),radians(70),r)
+    translate(vEdif1)
+    rotateY(radians(-70))
+    rotateZ(radians(-110))
+    // axis(50)
+    cylinder(2,80)
+    
+    // Hojas
+    push()
+      fill(0,255,0,100)
+      translate(sphericVector(0,0,40))
+      // axis(20)
+      sphere(20)
+    pop()
+
   pop()
  
   //specularMaterial(250)
@@ -138,7 +193,7 @@ function sphericVector(theta, phi, r) {
   return v
 }
 
-function axes(len) {
+function axis(len) {
   push()
     strokeWeight(len/30)
 
