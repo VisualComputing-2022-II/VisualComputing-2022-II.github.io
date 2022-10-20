@@ -1,25 +1,36 @@
 // Radio del planeta
-let r = 155
+let r = 200
 
 // Velocidad de movimiento
-speed = 0.5
+speed = 1
 
 let rot = 0
 let teta = 0
 let phi = 0
 let carOrientation = 0
 
+let cam
+
+function preload() {
+  grass = loadImage(['/sketches/grass.jpg'])
+
+  carObj = loadModel('/sketches/car.obj',true)
+  carTexture = loadImage(['/sketches/car.png'])
+}
+
 function setup() {
   // createCanvas(1300, 800, WEBGL)
-  createCanvas(400, 400, WEBGL)
+  createCanvas(500, 500, WEBGL)
   textureMode(NORMAL)
-
-  // Imágenes para texturas
-  grass = loadImage(['/sketches/grass.jpg'])
   
   // Posición inicial del carro
   teta = PI/2
   phi = PI/2
+
+  cam = createCamera()
+
+  camCenter = sphericVector(radians(100),radians(90),r+30)
+  cam.lookAt(camCenter.x, camCenter.y, camCenter.z)
 }
 
 function draw() {
@@ -28,6 +39,10 @@ function draw() {
   
   // Control de cámara con mouse
   orbitControl()
+
+  camPos = sphericVector(phi, teta, r+60)
+
+  cam.setPosition(camPos.x, camPos.y, camPos.z)
 
   // CONTROLES DE MOVIMIENTO
 
@@ -39,28 +54,28 @@ function draw() {
   // ------------------------------------------------
 
   // Movimiento: Carro
-  if (keyIsDown(RIGHT_ARROW)){
+  if (keyIsDown(87)){ // W
     teta -= radians(speed) * sin(carOrientation)
     phi -= radians(speed) * cos(carOrientation)
   }
-  if (keyIsDown(LEFT_ARROW)){
+  if (keyIsDown(83)){ // S
     teta += radians(speed) * sin(carOrientation)
     phi += radians(speed) * cos(carOrientation)
     
   }
-  if (keyIsDown(UP_ARROW)){
+  if (keyIsDown(65)){ // A
     teta += radians(speed) * cos(carOrientation)
     phi -= radians(speed) * sin(carOrientation)
   }
-  if (keyIsDown(DOWN_ARROW)){
+  if (keyIsDown(68)){ // D
     teta -= radians(speed) * cos(carOrientation)
     phi += radians(speed) * sin(carOrientation)
   }
   // Orientación: Carro
-  if (keyIsDown(65)){ // A
+  if (keyIsDown(LEFT_ARROW)){
     carOrientation -= radians(speed)
   }
-  if (keyIsDown(68)){ // D
+  if (keyIsDown(RIGHT_ARROW)){
     carOrientation += radians(speed)
   }
  
@@ -68,36 +83,70 @@ function draw() {
   // Iluminación
   ambientLight(255)
   //pointLight('white', 100, 0, 500)
+  // axis(250)
+  rotateZ(-PI/2)
+
+  // camPos = sphericVector(teta, phi, r+60)
+
+  // cam.setPosition(camPos.x, camPos.y, camPos.z)
+  
+  // cam.tilt(carOrientation) * cos(carOrientation)
+  // cam.pan(carOrientation) * sin(carOrientation)
 
   // Rotación global
-  rotateZ(radians(50))
-  rotateX(radians(-10))
-  rotateY(radians(-10))
+  // rotateZ(radians(50))
+  // rotateX(radians(-10))
+  // rotateY(radians(-10))
+
+  // Cámara
+  push()
+    stroke('orange')
+    fill(50,255)
+    translate(camPos)
+    rotateZ(carOrientation + PI)
+    axis(50)
+    sphere(5)
+  pop()
+  
+  // Foco de cámara
+  push()
+    stroke('red')
+    fill(50,255)
+    translate(camCenter)
+    rotateZ(carOrientation + PI)
+    // axis(50)
+    // sphere(3)
+  pop()
+  
+
+  // Dibujo: Planeta
+  push()
+    // fill('rgba(200,255,0,0.2)')
+    texture(grass)
+    // noFill()
+    noStroke()
+    sphere(r)
+  pop()
 
   // Dibujo: Carro
   push()
-    fill('red')
+    // fill(0,0,255,100)
     vCarro = sphericVector(teta, phi, r+6)
     translate(vCarro)
     rotateY(-phi)
     rotateZ(-teta)
-    rotateY(carOrientation)
+    rotateY(carOrientation+PI)
     axis(50)
-    box(10)
-  pop()
-
-  // Dibujo: Planeta
-  push()
-    fill('rgba(200,255,0,0.2)')
-    // texture(grass)
-    // noFill()
-    // noStroke()
-    sphere(r)
+    scale(r/1500)
+    texture(carTexture)
+    noStroke()
+    model(carObj)
   pop()
 
   // Carretera
   push()
-    cylinder(156,20)
+    noFill()
+    cylinder(r+r/150,r/7.5)
   pop()
 
   // Edificio 1: Casa
@@ -108,8 +157,8 @@ function draw() {
     translate(vEdif1)
     rotateY(radians(-120))
     rotateZ(-radians(115))
-    axis(50)
-    sphere(30)
+    // axis(50)
+    sphere(r/5)
   pop()
 
   // Edificio 2: Garaje
@@ -119,8 +168,8 @@ function draw() {
     vEdif2 = sphericVector(radians(130),radians(95),r)
     translate(vEdif2)
     rotateX(radians(40))
-    axis(50)
-    cylinder(20,30)
+    // axis(50)
+    cylinder(r/7.5,r/5)
   pop()
 
   // Edificio 3: Fuente
@@ -131,8 +180,8 @@ function draw() {
     translate(vEdif1)
     rotateY(radians(-95))
     rotateZ(radians(-110))
-    axis(50)
-    cylinder(10,2)
+    // axis(50)
+    cylinder(r/15,r/100)
   pop()
 
   // Árbol
@@ -145,14 +194,14 @@ function draw() {
     rotateY(radians(-70))
     rotateZ(radians(-110))
     // axis(50)
-    cylinder(2,80)
+    cylinder(r/50,r/2)
     
     // Hojas
     push()
       fill(0,255,0,100)
-      translate(sphericVector(0,0,40))
+      translate(sphericVector(0,0,r/4))
       // axis(20)
-      sphere(20)
+      sphere(r/7.5)
     pop()
 
   pop()
