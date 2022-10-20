@@ -1,7 +1,7 @@
 ---
 title: Planeta Kaio
 description: Implementación de un escenario tridimensional con temática del Planeta Kaio de Dragon Ball. Se usan conceptos de espacios, cámara, perspectiva y texturas.
-weight: 2
+weight: 1
 katex: true
 ---
 
@@ -29,8 +29,8 @@ $$
 La implementación xd
 
 {{% notice tip %}}
-Movimiento del carro: _**Flechas**_. Cámara del carro: **A** y **D**.
+Movimiento del carro: _**WASD**_. Cámara del carro: **Flechas Izq. y Der.**.
 {{% /notice %}}
 
-<!-- {{< p5-iframe sketch="/sketches/kaio.js" width="1320" height="830" >}} -->
-{{< p5-iframe sketch="/sketches/kaio.js" width="420" height="430" >}}
+{{< p5-iframe sketch="/sketches/kaio.js" width="1320" height="830" >}}
+<!-- {{< p5-iframe sketch="/sketches/kaio.js" width="520" height="530" >}} -->
