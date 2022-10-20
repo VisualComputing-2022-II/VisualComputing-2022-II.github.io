@@ -37,6 +37,15 @@ Debido a que nuestro interés es recorrer un planeta de manera lineal como lo ha
 > De Gonfer, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1716817
 -->
 
+**Texturas** 
+
+Para las texturas del planeta, el ambiente, las construcciones, árboles, etc. Utilizamos imágenes respectivamente y las librerias de P5 texture(), textureMode() y textureWrap() para cargar estas imágenes a los diferentes elementos mencionados. 
+
+**Caso especial auto modelado** 
+
+De manera distinta se realizó el proceso de desarrollo del carrito, para el cuál no sólo se carga la textura sino también se realiza la carga de un modelo en 3D para darle forma especial a este objeto, para ello una vez tenemos el archivo .obj contenedor de nuestro modelo, usamos la librería de P5 loadModel() y model() para carga y visualización respectivamente.
+
+
 <!-- 
 $$
 \left [ x,y \right ]
