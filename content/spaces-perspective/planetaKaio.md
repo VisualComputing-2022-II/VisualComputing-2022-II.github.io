@@ -29,6 +29,8 @@ Debido a que nuestro interés es recorrer un planeta de manera lineal como lo ha
 * Líneas coordenadas **θ**: Semicírculos verticales (meridianos).
 * Líneas coordenadas **φ**: Circunferencias horizontales (paralelos).
 
+Para este caso se mantiene fijo el **r** y varían los otros dos ángulos.
+
 ![Coordenadas](/sketches/coords.png) 
 > De Lyudmil Antonov Lantonov - Este gráfico vectorial, sin especificar según el W3C, fue creado con Inkscape., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2229816
 
