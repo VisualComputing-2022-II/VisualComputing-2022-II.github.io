@@ -62,5 +62,5 @@ $$
 Movimiento del carro: _**WASD**_. Cámara del carro: **Flechas Izq. y Der.**.
 {{% /notice %}}
 
-{{< p5-iframe sketch="/sketches/kaio.js" width="1320" height="830" >}}
+{{< p5-iframe sketch="/sketches/kaio.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.RoverCam@1.1.1/p5.rovercam.min.js" width="1320" height="830" >}}
 <!-- {{< p5-iframe sketch="/sketches/kaio.js" width="520" height="530" >}} -->
