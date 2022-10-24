@@ -4,27 +4,27 @@ let r = 200
 // Velocidad de movimiento
 speed = 0.5
 
-let rot = 0
-let teta = 0
+let theta = 0
 let phi = 0
 let carOrientation = 0
 
-let tlt = -0.7
-let tltTemp = 0
-let pn = 0
+// let tlt = -0.7
+// let tltTemp = 0
+// let pn = 0
 
 function preload() {
   clouds = loadImage(['/sketches/clouds.png'])
   grass = loadImage(['/sketches/grass.jpg'])
-  edificio = loadImage(['/sketches/edificio.jpeg'])
+  edificio = loadImage(['/sketches/casa.jpg'])
 
   carObj = loadModel('/sketches/car.obj',true)
   carTexture = loadImage(['/sketches/car.png'])
 }
 
 function setup() {
+
   createCanvas(1300, 800, WEBGL)
-  // createCanvas(500, 500, WEBGL)
+  // createCanvas(500, 500, WEBGL)  
 
   // Colores
   bg = color(206, 81, 185)
@@ -35,15 +35,12 @@ function setup() {
   textureMode(NORMAL)
   
   // Posición inicial del carro
-  teta = PI/2
+  theta = PI/2
   phi = PI/2
+  carOrientation = radians(-90)
 
+  // Creación de cámaras
   cam = createCamera()
-
-  camCenter = sphericVector(radians(100),radians(90),r+r/10)
-  // cam.lookAt(camCenter.x, camCenter.y, camCenter.z)
-  cam.tilt(tlt)
-
   cam2 = createCamera()
 
   setCamera(cam2)
@@ -62,14 +59,25 @@ function draw() {
     noStroke()
     plane(50000,50000)
   pop()
-  
-  // Control de cámara
+
+  // --------------------------------------------------------------------------------------
+  // --- CONTROL DE CÁMARA 1 ---
+
   orbitControl()
 
-  camPos = sphericVector(-phi+PI, teta, r + 3*r/7)
+  // rotateZ(-PI/2)
+
+  // camPos = sphericVector(-phi+PI, theta, r*1.45)
+  camPos = sphericVector(theta, phi, r*1.45)
   cam.setPosition(camPos.x, camPos.y, camPos.z)
 
-  // CONTROLES DE MOVIMIENTO
+  // camFocus = sphericVector(-phi+PI*1.2, theta, r*1)
+  // print(sin(carOrientation))
+  camFocus = sphericVector(theta + radians(30)*sin(carOrientation+PI), phi + radians(30)*cos(carOrientation+PI), r*1.2)
+  cam.lookAt(camFocus.x, camFocus.y, camFocus.z)
+
+  // --------------------------------------------------------------------------------------
+  // --- CONTROLES DE MOVIMIENTO ---
 
   // ------------------------------------------------
   // Códigos de teclas:
@@ -80,32 +88,32 @@ function draw() {
 
   // Movimiento: Carro
   if (keyIsDown(87)){ // W
-    teta -= radians(speed) * sin(carOrientation)
+    theta -= radians(speed) * sin(carOrientation)
     phi -= radians(speed) * cos(carOrientation)
-    tltTemp += radians(speed)
-    cam.tilt(tltTemp)
-    tltTemp= 0
+    // tltTemp += radians(speed)
+    // cam.tilt(tltTemp)
+    // tltTemp= 0
   }
   if (keyIsDown(83)){ // S
-    teta += radians(speed) * sin(carOrientation)
+    theta += radians(speed) * sin(carOrientation)
     phi += radians(speed) * cos(carOrientation)
-    tltTemp -= radians(speed)
-    cam.tilt(tltTemp)
-    tltTemp= 0
+    // tltTemp -= radians(speed)
+    // cam.tilt(tltTemp)
+    // tltTemp= 0
   }
   if (keyIsDown(65)){ // A
-    teta += radians(speed) * cos(carOrientation)
+    theta += radians(speed) * cos(carOrientation)
     phi -= radians(speed) * sin(carOrientation)
-    pn -= radians(speed*PI/4)
-    cam.pan(pn)
-    pn = 0
+    // pn -= radians(speed*PI/4)
+    // cam.pan(pn)
+    // pn = 0
   }
   if (keyIsDown(68)){ // D
-    teta -= radians(speed) * cos(carOrientation)
+    theta -= radians(speed) * cos(carOrientation)
     phi += radians(speed) * sin(carOrientation)
-    pn += radians(speed*PI/4)
-    cam.pan(pn)
-    pn = 0
+    // pn += radians(speed*PI/4)
+    // cam.pan(pn)
+    // pn = 0
   }
   // Orientación: Carro
   if (keyIsDown(LEFT_ARROW)){
@@ -124,7 +132,7 @@ function draw() {
  
 
   // Rotación global
-  rotateZ(-PI/2)
+  // rotateZ(-PI/2)
   // rotateZ(radians(50))
   // rotateX(radians(-10))
   // rotateY(radians(-10))
@@ -132,32 +140,40 @@ function draw() {
   // Iluminación
   ambientLight(120)
   pointLight(200,200,200, 350, -250, 350)
+  
+  // --------------------------------------------------------------------------------------
+  // --- DIBUJOS ---
 
-  // Cámara
+  // Punto Guía: Cámara 1
   push()
-    stroke('orange')
+    // rotateZ(PI/2)
+    stroke('white')
     fill(50,255)
     translate(camPos)
-    rotateZ(carOrientation + PI)
-    // sphere(5)
+    // rotateX(-phi)
+    // rotateZ(-theta)
+    // rotateZ(carOrientation + PI)
+    // axis(100)
+    sphere(5)
   pop()
   
-  // Foco de cámara
+  // Punto Guía: Foco de cámara 1
   push()
+    // rotateZ(PI/2)
     stroke('red')
     fill(50,255)
-    translate(camCenter)
-    rotateZ(carOrientation + PI)
-    // sphere(3)
+    translate(camFocus)
+    // rotateZ(carOrientation + PI)
+    // axis(20)
+    sphere(3)
   pop()
-  
 
   // Dibujo: Planeta
   push()
     specularMaterial(250)
     shininess(50)
-    fill(planeta)
-    // texture(grass)
+    // fill(planeta)
+    texture(grass)
     // noFill()
     noStroke()
     sphere(r)
@@ -166,22 +182,27 @@ function draw() {
   // Dibujo: Carro
   push()
     // fill(0,0,255,100)
-    vCarro = sphericVector(teta, phi, r+6)
+    vCarro = sphericVector(theta, phi, r+6)
     translate(vCarro)
     rotateY(-phi)
-    rotateZ(-teta)
+    rotateZ(-theta)
     rotateY(carOrientation+PI)
+    axis(150)
     scale(r/1500)
-    // tint(255,0,0)
     texture(carTexture)
     noStroke()
     model(carObj)
   pop()
 
+  // Rotación Global
+  rotateZ(-PI/2)
+
   // Carretera
   push()
-    noStroke()
-    fill(180)
+    stroke('blue')
+    // noStroke()
+    // fill(180)
+    noFill()
     cylinder(r+r/100,r/7.5)
   pop()
 
@@ -218,7 +239,7 @@ function draw() {
     cylinder(r/15,r/100)
   pop()
 
-  // Árbol
+  // Árboles
   drawArbol(110,70)
   drawArbol(210,20)
   drawArbol(10,280)
@@ -227,10 +248,7 @@ function draw() {
   drawArbol(50,0)
   drawArbol(100,20)
   drawArbol(160,-40)
- 
-  //specularMaterial(250)
-  //shininess(50) 
- 
+
 }
 
 // -------------------------------------------------------------------------
