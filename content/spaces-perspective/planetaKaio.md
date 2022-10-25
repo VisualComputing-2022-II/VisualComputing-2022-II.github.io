@@ -14,6 +14,8 @@ Implement an image processing web app supporting different image kernels and sup
 
 ---
 
+![Kaio](/sketches/kaaio.jpg) 
+
 # Coordenadas Esféricas
 
 Este tipo de [coordenadas](https://es.wikipedia.org/wiki/Coordenadas_esf%C3%A9ricas) están basadas en el sistema de coordenadas polares, el cuál recordemos es bidimensional y consta de un ángulo y el valor del radio. Para nuestro caso aumentaremos a 3 tres dimensiones agregando un ángulo adicional.
