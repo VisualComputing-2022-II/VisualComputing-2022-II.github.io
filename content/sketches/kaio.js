@@ -16,6 +16,7 @@ function preload() {
   clouds = loadImage(['/sketches/clouds.png'])
   grass = loadImage(['/sketches/grass.jpg'])
   edificio = loadImage(['/sketches/casa.jpg'])
+  hojas = loadImage(['/sketches/leaves.png'])
 
   carObj = loadModel('/sketches/car.obj',true)
   carTexture = loadImage(['/sketches/car.png'])
@@ -31,6 +32,7 @@ function setup() {
   planeta = color(218, 255, 45)
   casa = color(235, 217, 105)
   fuente = color(132, 91, 44)
+  madera = color(92, 62, 55)
 
   textureMode(NORMAL)
   
@@ -129,7 +131,10 @@ function draw() {
   if (keyIsDown(50)) { // 2
     setCamera(cam2)
   }
- 
+  // Reset
+  if (keyIsDown(82)){ // R
+    reset()
+  }
 
   // Rotación global
   // rotateZ(-PI/2)
@@ -138,8 +143,8 @@ function draw() {
   // rotateY(radians(-10))
 
   // Iluminación
-  ambientLight(120)
-  pointLight(200,200,200, 350, -250, 350)
+  ambientLight(110)
+  pointLight(255,200,200, 350, -250, 350)
   
   // --------------------------------------------------------------------------------------
   // --- DIBUJOS ---
@@ -154,7 +159,7 @@ function draw() {
     // rotateZ(-theta)
     // rotateZ(carOrientation + PI)
     // axis(100)
-    sphere(5)
+    // sphere(5)
   pop()
   
   // Punto Guía: Foco de cámara 1
@@ -165,7 +170,7 @@ function draw() {
     translate(camFocus)
     // rotateZ(carOrientation + PI)
     // axis(20)
-    sphere(3)
+    // sphere(3)
   pop()
 
   // Dibujo: Planeta
@@ -187,7 +192,7 @@ function draw() {
     rotateY(-phi)
     rotateZ(-theta)
     rotateY(carOrientation+PI)
-    axis(150)
+    // axis(150)
     scale(r/1500)
     texture(carTexture)
     noStroke()
@@ -199,10 +204,10 @@ function draw() {
 
   // Carretera
   push()
-    stroke('blue')
-    // noStroke()
-    // fill(180)
-    noFill()
+    // stroke('blue')
+    noStroke()
+    fill(160)
+    // noFill()
     cylinder(r+r/100,r/7.5)
   pop()
 
@@ -222,6 +227,7 @@ function draw() {
   push()
     noStroke()
     fill(casa)
+    // texture(garaje)
     vEdif2 = sphericVector(radians(130),radians(95),r)
     translate(vEdif2)
     rotateX(radians(40))
@@ -306,10 +312,18 @@ function axis(len) {
   pop()
 }
 
+function reset() {
+  // Posición inicial del carro
+  theta = PI/2
+  phi = PI/2
+  carOrientation = radians(-90)
+}
+
 function drawArbol(theta, phi) {
   push()
     noStroke()
-    fill('brown')
+    // fill('brown')
+    fill(madera)
     vArbol = sphericVector(radians(theta),radians(phi),r)
     translate(vArbol)
     rotateY(radians(-phi))
@@ -318,7 +332,8 @@ function drawArbol(theta, phi) {
     
     // Hojas
     push()
-      fill('green')
+      // fill('green')
+      texture(hojas)
       translate(sphericVector(0,0,r/4))
       sphere(r/7.5)
     pop()
