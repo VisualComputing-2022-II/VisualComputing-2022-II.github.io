@@ -1,7 +1,7 @@
 var img;
 
 function preload() {
-	img = loadImage(['/sketches/ship.png']); // Load the image
+	img = loadImage(['/sketches/assets/ship.png']); // Load the image
 }
   
 function setup() {

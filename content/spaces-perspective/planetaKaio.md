@@ -14,13 +14,13 @@ Implement an image processing web app supporting different image kernels and sup
 
 ---
 
-![Kaio](/sketches/kaaio.jpg) 
+![Kaio](/sketches/assets/kaaio.jpg) 
 
 # Coordenadas Esféricas
 
 Este tipo de [coordenadas](https://es.wikipedia.org/wiki/Coordenadas_esf%C3%A9ricas) están basadas en el sistema de coordenadas polares, el cuál recordemos es bidimensional y consta de un ángulo y el valor del radio. Para nuestro caso aumentaremos a 3 tres dimensiones agregando un ángulo adicional.
 
-![Coordenadas](/sketches/coords2.png) 
+![Coordenadas](/sketches/assets/coords2.png) 
 > De Cristian Quinzacara - Trabajo propio, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=122972075
 
 **Líneas y superficies coordenadas** 
@@ -33,7 +33,7 @@ Debido a que nuestro interés es recorrer un planeta de manera lineal como lo ha
 
 Para este caso se mantiene fijo el **r** y varían los otros dos ángulos.
 
-![Coordenadas](/sketches/coords.png) 
+![Coordenadas](/sketches/assets/coords.png) 
 > De Lyudmil Antonov Lantonov - Este gráfico vectorial, sin especificar según el W3C, fue creado con Inkscape., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2229816
 
 <!-- 
@@ -64,5 +64,5 @@ $$
 Movimiento del carro: _**WASD**_. Cámara del carro: **Flechas Izq. y Der.**.
 {{% /notice %}}
 
-{{< p5-iframe sketch="/sketches/kaio.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.RoverCam@1.1.1/p5.rovercam.min.js" width="1320" height="830" >}}
+{{< p5-iframe sketch="/sketches/transformation/kaio.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.RoverCam@1.1.1/p5.rovercam.min.js" width="1320" height="830" >}}
 <!-- {{< p5-iframe sketch="/sketches/kaio.js" width="520" height="530" >}} -->

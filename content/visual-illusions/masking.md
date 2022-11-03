@@ -71,7 +71,7 @@ $$
 Presione _**a**_ para alternar entre el _filtro completo_ y el _filtro focalizado_.
 {{% /notice %}}
 
-{{< p5-iframe sketch="/sketches/convolution.js" width="750" height="550" >}}
+{{< p5-iframe sketch="/sketches/illusions/convolution.js" width="750" height="550" >}}
 
 ---
 
@@ -83,4 +83,4 @@ Un **histograma de imagen** es un tipo de histograma que actúa como una represe
 
 En esta implementación, la imagen está en modo de color **HSL**; el histograma representa la cantidad de **L**.
 
-{{< p5-iframe sketch="/sketches/histogram.js" width="700" height="624" >}}
+{{< p5-iframe sketch="/sketches/illusions/histogram.js" width="700" height="624" >}}
