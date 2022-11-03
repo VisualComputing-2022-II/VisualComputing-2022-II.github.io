@@ -10,7 +10,7 @@ let matrix = [[-1,-1,-1],
               [-1,-1,-1]];
 
 function preload() {
-  img = loadImage(['/sketches/apollo11.png']);
+  img = loadImage(['/sketches/assets/apollo11.png']);
 }
 
 function setup() {

@@ -13,13 +13,13 @@ let carOrientation = 0
 // let pn = 0
 
 function preload() {
-  clouds = loadImage(['/sketches/clouds.png'])
-  grass = loadImage(['/sketches/grass.jpg'])
-  edificio = loadImage(['/sketches/casa.jpg'])
-  hojas = loadImage(['/sketches/leaves.png'])
+  clouds = loadImage(['/sketches/assets/clouds.png'])
+  grass = loadImage(['/sketches/assets/grass.jpg'])
+  edificio = loadImage(['/sketches/assets/casa.jpg'])
+  hojas = loadImage(['/sketches/assets/leaves.png'])
 
-  carObj = loadModel('/sketches/car.obj',true)
-  carTexture = loadImage(['/sketches/car.png'])
+  carObj = loadModel('/sketches/assets/car.obj',true)
+  carTexture = loadImage(['/sketches/assets/car.png'])
 }
 
 function setup() {
