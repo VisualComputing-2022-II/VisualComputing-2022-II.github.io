@@ -9,8 +9,8 @@ varying vec2 texcoords2;
 
 // returns luma of given texel
 float luma(vec3 texel) {
-    //return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b;
-    return 0.1 * texel.r + 0.8 * texel.g + 0.1 * texel.b;
+    return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b;
+    //return 0.1 * texel.r + 0.8 * texel.g + 0.1 * texel.b;
     //return texel.h + texel.s + texel.v;
   }
 
