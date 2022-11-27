@@ -2,7 +2,7 @@ let uMaterial1
 let uMaterial2
 
 function preload() {
-  colorShader = readShader('blend.frag',
+  colorShader = readShader('/sketches/shaders/color/blend.frag',
                           { matrices: Tree.NONE, varyings: Tree.color4 });
 }
 

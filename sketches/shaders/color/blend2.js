@@ -3,7 +3,7 @@ let uMaterial2
 let brightness_slider
 
 function preload() {
-  colorShader = readShader('blend.frag',
+  colorShader = readShader('/sketches/shaders/color/blend2.frag',
                           { matrices: Tree.NONE, varyings: Tree.color4 });
 }
 

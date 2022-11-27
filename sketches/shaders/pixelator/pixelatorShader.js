@@ -16,7 +16,7 @@ function preload() {
   image_src = loadImage(`p${int(random(1, 6))}.jpg`);
   // video_src = createVideo(['/sketches/shaders/wagon.webm']);
   // video_src.hide();
-  mosaic = readShader('pixelator.frag',
+  mosaic = readShader('/sketches/shaders/pixelator/pixelatorShader.frag',
            { matrices: Tree.NONE, varyings: Tree.texcoords2 });
   
   paintings = [];
