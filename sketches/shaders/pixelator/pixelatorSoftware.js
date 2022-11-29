@@ -6,7 +6,7 @@ let imagen;
 let windowImageRatio;
 
 // Control de pixelado y resolución
-let doPixelation = true;
+let doPixelation = false;
 let resolution;
 
 // Control de tiempo
@@ -17,17 +17,27 @@ let time;
 
 function preload() {
   imagen = loadImage('/sketches/assets/kaaio.jpg')
+  // imagen = createVideo(['/sketches/assets/fingers.mov'])
 }
 
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
-  // imagen.resize(640, 480)
   image(imagen, 0, 0)
   windowImageRatio = windowWidth / imagen.width;
   
   // Cantida de pixeles de ancho y alto que se van a pintar:
-  resolution = createSlider(1, 10, 10, 1);
+  resolution = createSlider(1, 300, 10, 1);
+  doPix = createButton("Toggle");
+  doPix.mousePressed(setPixelation());
+
+  imagenRatio = imagen.width / imagen.height
+
+  if (imagenRatio > 1){
+    imagen.resize(windowWidth*0.9, (windowWidth/imagenRatio)*0.9)
+  }else{
+    imagen.resize((windowHeight/imagenRatio)*0.9, windowHeight*0.9)
+  }
   
 }
 
@@ -61,6 +71,9 @@ function draw() {
         rect(scaledX, scaledY, scaledPixelSize, scaledPixelSize);
       }
     }
+  }else{
+    image(imagen, 0, 0)
+    // imagen.loop()
   }
   
   // Texto guía - Resolución y Frame Rate:
@@ -74,7 +87,7 @@ function draw() {
       checkTime = false
       print(time)
   }
-  
+
 }
 
 function setPixelation() {
