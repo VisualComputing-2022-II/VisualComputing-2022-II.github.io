@@ -1,6 +1,6 @@
 ---
 title: Shaders
-description: Shaders
+description: Workshops de las semanas 12 a 15 sobre las temáticas de Shaders. Implementación de los ejercicios propuestos para Coloring, Image Processing y Spatial Coherence.
 chapter: true
 weight: 3
 pre: "<b>3. </b>"
@@ -11,7 +11,7 @@ pre: "<b>3. </b>"
 
 # Shaders
 
-shaders xd
+Workshops de las semanas 12 a 15 sobre las temáticas de **Shaders**. Implementación de los ejercicios propuestos para _Coloring_, _Image Processing_ y _Spatial Coherence_.
 
 <!-- ## Secciones
 
