@@ -11,7 +11,7 @@ pre: "<b>3. </b>"
 
 # Shaders
 
-Workshops de las semanas 12 a 15 sobre las temáticas de **Shaders**. Implementación de los ejercicios propuestos para _Coloring_, _Image Processing_ y _Spatial Coherence_.
+Workshops de las semanas 12 a 15 sobre las temáticas de **Shaders**. Implementación de los ejercicios propuestos para _Coloring_ y _Spatial Coherence_.
 
 <!-- ## Secciones
 
